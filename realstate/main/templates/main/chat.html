@@ -1,0 +1,84 @@
+{%load static%}
+{%include 'main/basics.html'%}
+<!-- chat -->
+<br><br><br> <br>
+<link rel="stylesheet" href="{% static 'css/style2.css'%}">
+<section >
+<div class="chatbox">
+<div class="chatlogs">
+    {%for chat in chats%}
+{%if chat.from_u == request.user%}
+<div class="chat self">
+    <div class="user-photo pt-3"><p style="color: rgb(107, 94, 94);font-size:medium;text-align:center;font-weight:600">{{chat.from_u}}</p></div>
+    <p class="chat-message">{{chat}}</p>
+    <span>{{chat.time}}</span>
+    </div>
+
+{%else%}
+<div class="chat friend">
+<div class="user-photo pt-3"> <p style="color: rgb(107, 94, 94);font-size:medium;text-align:center;font-weight:600">{{chat.from_u}}</p> </div>
+<p class="chat-message">{{chat}}</p>
+<span>{{chat.time}}</span>
+</div>
+{%endif%}
+
+{%endfor%}
+</div>
+<form action="" method="post">
+    {%csrf_token%}
+<div class="chat-form">
+    
+        <textarea name="mess" id="" cols="30" rows="10"></textarea>
+        <input type="submit"class="btn btn-primary" value="Send">
+   
+</div></form>
+    </div>
+</section>
+<!-- /chat -->
+<footer>
+  <!-- copyright -->
+  <div class="copyright-w3ls py-4">
+    <div class="container">
+        <div class="row">
+            <!-- copyright -->
+            <p class="col-lg-8 copy-right-grids text-wh text-lg-left text-center mt-lg-2">© 2019 Land. All
+                Rights Reserved | Design by
+                <a href="https://w3layouts.com/" target="_blank">W3layouts</a>
+            </p>
+            <!-- //copyright -->
+            <!-- social icons -->
+            <div class="col-lg-4 w3social-icons text-lg-right text-center mt-lg-0 mt-3">
+                <ul>
+                    <li>
+                        <a href="#" class="rounded-circle">
+                            <span class="fa fa-facebook-f"></span>
+                        </a>
+                    </li>
+                    <li class="px-2">
+                        <a href="#" class="rounded-circle">
+                            <span class="fa fa-google-plus"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="rounded-circle">
+                            <span class="fa fa-twitter"></span>
+                        </a>
+                    </li>
+                    <li class="pl-2">
+                        <a href="#" class="rounded-circle">
+                            <span class="fa fa-dribbble"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- //social icons -->
+        </div>
+    </div>
+  </div>
+  <!-- //copyright -->
+  <!-- move top icon -->
+  <a href="#" class="move-top text-center">
+    <span class="fa fa-angle-double-up" aria-hidden="true"></span>
+  </a>
+  <!-- //move top icon -->
+</footer>

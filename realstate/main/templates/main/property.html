@@ -1,0 +1,116 @@
+{%load static%}
+{%include 'main/basics.html'%}
+<br> <br> <br> <br> <br>
+<section class="clients py-5 text-center" id="testi">
+  <h3 class="title-w3 mb-2 text-center text-bl font-weight-bold"><span>Properties</span></h3> <br> <br>
+
+    <form action="" method="post">
+      {%csrf_token%}
+  <div class="col-md-2">
+    <div class="form-group">
+  <select name="s" class="form-control">
+    <!-- <option value="" disabled selected hidden > Sort </option> -->
+    <option value="created_at">Latest Property</option>
+    <option value="address">Property Location</option>
+    <option value="status">Property status</option>
+  </select>
+    </div></div>
+ 
+
+
+  <div class="container py-xl-5 py-lg-3">
+    <div class="home-form-w3ls mt-5 pt-lg-4">
+      
+          <div class="row">
+            <div class="col-md-4">
+                  <div class="form-group">
+                      <input type="search" list="status" placeholder="Search by status ..." class="form-control" name="status">
+                      <datalist id="status">
+                      
+                        {%for status in statuss%}
+                          <option value="{{status}}">{{status}}</option>
+                         {%endfor%}
+                        </datalist>
+                  </div> </div>
+                  <!-- <select name="status" >
+                    {%for stat in properties%}
+                       <option value="{{stat.status}}" class="form-control">{{stat.status}}</option>
+                  
+                   {%endfor%}
+                 </select> -->
+                  <div class="col-md-3 ">
+                  <div class="form-group">
+                    
+                 <select name="type" class="form-control">
+                     {%for type in pptype%}
+                       <!-- <option value="" disabled selected hidden >Search by Property Type ...</option> -->
+                        <option value="{{type.id}}"  class="form-control" >{{type.types}}</option>
+                   
+                    {%endfor%}
+                  </select>
+                  </div></div>
+                 
+                  <div class="form-group">
+                      <input type="text" placeholder="Search by Price ..." name="price">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" placeholder="Search by Address ... "  name="address">
+                    
+                  </div>
+                  
+              
+          </div>
+          <button type="submit" class="btn btn_apt">Find Here</button>
+      </form>
+  </div>
+  </div></section>
+    <!-- properties -->
+    <br> <br> <br>
+    <section id="properties" class="pp my-5">
+      <br> <br>
+        {%for property in properties%}
+        <div class="row ml-3 mr-3 mt-5 mb-5" >
+        
+             <div class="card" id="card1">
+               <div class="img1">
+              <a href="{% url 'detail' property.id %}" target="_blank">{%if property.images %}<img style="width: 350px; " src="{{ property.images.url }}" alt="">{% endif %}</a>   
+                 <div  id="imgt">
+                    {{property.status}}
+                </div>
+                <div id="imgt2">
+                   ETB {{property.price}}
+                </div>
+                </div>
+                    <div class="main-text">
+                 <ul>
+                  <li style="color: rgb(245, 51, 51); font-size:medium;">{{property.ptype}}</li>
+                  <a href="{% url 'detail' property.id %}" target="_blank"><li style="font-size:larger; font-weight:bolder; color: #41414d">{{property.title}}</li></a> 
+                  <li> <i class="fa fa-map-marker" aria-hidden="true"></i> {{property.geolocation}}  {{property.address}} {{property.subarea}}</li>
+                </ul>
+                   
+                    </div>
+                    <div class="card-footer blog_w3icon border-top pt-2 d-flex justify-content-between">
+                      <small class="text-li">
+                          <div class="socials">
+                              <div class="img2 " style="font-size:larger; font-weight:bolder; color: #41414d">
+                                  <img src="{% static 'images/p2.jpg'%}" alt="">  {{property.created_by}}
+                              </div>
+                            
+                             </div>
+                      </small>
+                      <span style="color: #41414d">
+                        {{property.updated_at}}
+                      </span>
+                  </div>
+                   
+                 
+             </div></div>
+        {%endfor%}
+           
+
+    </section>
+    <br><br><br>
+
+   
+
+    {% include 'main/footer.html'%}

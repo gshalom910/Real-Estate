@@ -1,0 +1,57 @@
+{%load static%}
+{% include 'main/basics.html' %} 
+    <!-- inner banner -->
+    <div class="inner-banner-w3ls py-5" id="home">
+        <div class="container py-xl-5 py-lg-3">
+            <!-- register  -->
+            <div class="modal-body mt-md-2 mt-5">
+                <h3 class="title-w3 mb-5 text-center text-wh font-weight-bold">Register Now</h3>
+                <form action="" method="post">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <label class="col-form-label">Username</label>
+                        {{form.username}}
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Firstname</label>
+                        {{form.first_name}}
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Email</label>
+                        {{form.email}}
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Password</label>
+                        {{form.password1}}
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Confirm Password</label>
+                        {{form.password2}}
+                    </div>
+                    <div class="sub-w3l my-3">
+                        <div class="sub-w3layouts_hub">
+                            <input type="checkbox" id="brand1" value="">
+                            <label for="brand1" class="text-li text-style-w3ls">
+                                <span></span>I Accept to the Terms & Conditions</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn button-style-w3">Register</button>
+
+                    {{form.errors}}
+                </form>
+            </div>
+            <!-- //register -->
+        </div>
+    </div>
+    <!-- //inner banner -->
+<!---728x90--->
+
+     
+{% include 'main/footer.html' %} 
+<!---728x90--->
+
+</body>
+
+
+<!-- Mirrored from demo.w3layouts.com/demos_new/template_demo/27-05-2019/land-demo_Free/568639772/web/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Oct 2022 06:17:07 GMT -->
+</html>

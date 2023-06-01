@@ -1,0 +1,277 @@
+{%load static%}
+{% include 'main/basics.html' %} 
+
+    <!-- creat new property  -->
+    <section>
+
+
+    </section>
+     <!-- end of  creat new property  -->
+     <section >
+        <form action="" method="post" enctype="multipart/form-data">
+          {%csrf_token%}
+            <section id="details">
+        <div class="container "> 
+            <br> <br> <br> <br> <br>
+            <h3 class="title-w3 mb-4 align-baseline text-gr ">Add New Property</h3>
+            <div class="container bg-gr"  style="width: 70rem; height:fit-content"> <br> 
+                <h4 class="title-w3 mb-4 font-weight-bold text-bll">
+                    Property Details
+                </h4>
+                   
+                        <div class="form-group">
+                        <b>Property Title :</b>  <br> <br>
+                                {{forms.title}} </div>
+                                <div class="row">
+                        <div class="col-lg-6 ">
+                            <div class="form-group">
+                                <b>Property Type :</b>  <br> <br>
+                                    {{forms.ptype}}
+                            </div>
+                            <div class="form-group">
+                                <b>Area in sqm :</b>  <br> <br>
+                           {{forms.area_sqms}}
+            
+                            </div>
+                            </div>
+                            <div class="col-lg-6 ">
+                              
+                            <div class="form-group">
+                                <b>Property Status :</b>  <br> <br>
+                               {{forms.status}}
+
+                            </div>
+                            <div class="row">
+                            <div class="form-group">
+                                <b>Property Price :</b>  <br> <br>
+                                {{forms.price}}
+                        </div>
+                        
+                        <div class="form-group">
+                            <b>Rooms :</b> <br> <br>
+                            {{forms.rooms}}
+                        </div>
+                        <div class="form-group">
+                          <b>Beds :</b> <br> <br>
+                          {{forms.bed}}
+                      </div>
+                      <div class="form-group">
+                        <b>Baths :</b> <br> <br>
+                        {{forms.bath}}
+                    </div>
+                       </div>  </div></div>
+                        
+                            <div class="form-group">
+                                <b>Description</b> <br> <br>
+                                {{forms.description}}
+                            </div>  <br> <br>
+                            <div class="form-group col-md-3">
+                            <div class="container bg-wh "  style="width: 20rem; height:15rem"> <br>
+                            
+                              <label>Upload Images</label> <br> <br> <br> <br> <br> <br> <br>
+                              <div  class="form-control-file">
+                                {{forms.images}}
+                              </div>
+                              
+                             
+                            </div></div>   <br> <br>
+
+            </div></section>
+
+            <section id="location">
+            <div class="container "> 
+                <br> <br>  <br>
+                <div class="container bg-gr"  style="width: 70rem; height:fit-content"> <br> 
+                    <h4 class="title-w3 mb-4 font-weight-bold text-bll">
+                        Location
+                    </h4>
+                       
+                            
+                            <div class="col-lg-6 ">
+                                <div class="form-group">
+                                    <b>Which Area is the Property located :</b>  <br> <br>
+                                    {{forms.address}} </div>
+                                         <br> <br>
+                                <div class="form-group">
+                                    <b>Sub-Area Description  :</b>  <br> <br>
+                                    {{forms.subarea}}
+                                </div> 
+                                <div class="form-group">
+                                    <b>Geolocation  :</b>  <br> <br>
+                                    {{forms.geolocation}} 
+                                </div> <br> <br> </div>
+                                
+            </section>
+
+            <section id="amenities">
+                <div class="container "> 
+                    <br> <br>  <br>
+                    <div class="container bg-gr"  style="width: 70rem; height:fit-content"> <br> 
+                        <h4 class="title-w3 mb-4 font-weight-bold text-bll">
+                            Amenities
+                        </h4>
+                           
+                                
+                        <div class="form-check form-check-inline">
+                          {{forms.conditioning}}
+                            <label class="form-check-label" for="flexCheckDefault">
+                                 Air Conditioning
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            {{forms.pool}}
+                            <label class="form-check-label" > Swimming Pool
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            {{forms.security}}
+                            <label class="form-check-label" for="flexCheckDefault">
+                               Security
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            {{forms.reception}}
+                            <label class="form-check-label" >
+                               24hr Reception Service
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            {{forms.garbage}}
+                          <label class="form-check-label" >
+                            Garbage Shoot
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          {{forms.pets}}
+                          <label class="form-check-label">
+                            Pets Allowed
+                          </label>
+                        </div>
+                        <div class="form-check ">
+                          {{forms.green_area}}
+                          <label class="form-check-label" >
+                            Terrace/Green Area
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          {{forms.gym}}        
+                                            <label class="form-check-label" >
+                            Gym
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline"">
+                          {{forms.wifi}}                            
+                          <label class="form-check-label" for="flexCheckDefault">
+                                WiFi
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline"">
+                            {{forms.sauna}}
+                    <label class="form-check-label" >
+                                Sauna
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            {{forms.parking}}
+                          <label class="form-check-label" for="flexCheckDefault">
+                            Car Parking
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline"">
+                          {{forms.cleaning}}
+                          <label class="form-check-label" >
+                            Cleaning
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline"">
+                          {{forms.dstv}}
+                          <label class="form-check-label" for="flexCheckDefault">
+                            DSTV
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline"">
+                          {{forms.generator}}
+                          <label class="form-check-label" >
+                            Generetor
+                          </label>
+                        </div>
+                        
+                        <br> <br><br>
+                        
+                </section>
+                <input type="submit" class="btn btn-primary mb-4 mt-4 ml-5 col-1 " value="Submit"> 
+                </form></section>
+
+
+                <section >
+                  <form action="{%url 'gallery' %}" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+                  <div class="container "> 
+                      <br> <br>  <br>
+                      <div class="container bg-gr"  style="width: 70rem; height:fit-content"> <br> 
+                          <h4 class="title-w3 mb-4 font-weight-bold text-bll">
+                              Gallery
+                          </h4>
+                             
+                          <div class="col-md-3 ">
+                            <div class="form-group">
+                              
+                           <select name="gal" class="form-control">
+                               {%for type in pro%}
+                                 <!-- <option value="" disabled selected hidden >Search by Property Type ...</option> -->
+                                  <option value="{{type.id}}"  class="form-control" >{{type}}</option>
+                             
+                              {%endfor%}
+                            </select>
+                            <input type="file" name="images" multiple>
+                            <input type="submit" value="Submit">
+                            </div></div>
+                            </form>
+                  </section>
+
+                <!-- copyright -->
+<div class="copyright-w3ls py-4">
+  <div class="container">
+      <div class="row">
+          <!-- copyright -->
+          <p class="col-lg-8 copy-right-grids text-wh text-lg-left text-center mt-lg-2">© 2019 Land. All
+              Rights Reserved | Design by
+              <a href="https://w3layouts.com/" target="_blank">W3layouts</a>
+          </p>
+          <!-- //copyright -->
+          <!-- social icons -->
+          <div class="col-lg-4 w3social-icons text-lg-right text-center mt-lg-0 mt-3">
+              <ul>
+                  <li>
+                      <a href="#" class="rounded-circle">
+                          <span class="fa fa-facebook-f"></span>
+                      </a>
+                  </li>
+                  <li class="px-2">
+                      <a href="#" class="rounded-circle">
+                          <span class="fa fa-google-plus"></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#" class="rounded-circle">
+                          <span class="fa fa-twitter"></span>
+                      </a>
+                  </li>
+                  <li class="pl-2">
+                      <a href="#" class="rounded-circle">
+                          <span class="fa fa-dribbble"></span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <!-- //social icons -->
+      </div>
+  </div>
+</div>
+<!-- //copyright -->
+<!-- move top icon -->
+<a href="#" class="move-top text-center">
+  <span class="fa fa-angle-double-up" aria-hidden="true"></span>
+</a>
+<!-- //move top icon -->
+            
