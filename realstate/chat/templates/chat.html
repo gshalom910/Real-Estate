@@ -1,0 +1,16 @@
+<form action="" method="post">
+    {%csrf_token%}
+    <textarea name="mess" id="" cols="30" rows="10"></textarea>
+    <input type="submit" value="Send">
+</form>
+{%for chat in chats%}
+{%if chat.from_u == request.user%}
+<p>{{chat.from_u}}</p>
+<h3>{{chat}}</h3>
+{%else%}
+<p>{{chat.from_u}}</p>
+<h1>{{chat}}</h1>
+{%endif%}
+<span>{{chat.time}}</span>
+<hr>
+{%endfor%}

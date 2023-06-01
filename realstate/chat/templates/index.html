@@ -1,0 +1,4 @@
+{%for user in users%}
+<a href="{%url 'chat' user.id%}"><h2>{{user}}</h2> </a>
+ <br>
+{%endfor%}
